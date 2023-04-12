@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AppBar, Toolbar } from "@mui/material";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { IconButton } from "@mui/material/";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -20,14 +23,13 @@ import Divider from "@mui/material/Divider";
 const themes = createTheme({
   palette: {
     primary: {
-      main: Colors.grey[900],
+      main: "#000",
     },
   },
 });
-
+//font-size: clamp(10px, 12px + .8vw, 50px);
 const Header = () => {
   const [openDrawer, setDrawerOpen] = useState(false);
-
   return (
     <React.Fragment>
       <AppBar style={{ background: "inherit" }} elevation={0} position="sticky">
@@ -37,7 +39,6 @@ const Header = () => {
               item
               sm={10}
               md={2.5}
-              style={{ border: "4px solid green" }}
               sx={{
                 maxHeight: 0,
                 display: { xs: "none", sm: "inherit" },
@@ -103,19 +104,21 @@ const Header = () => {
             </Grid>
             <Grid
               item
+              id="nowhereonatrain-logo"
               md={7}
               justifyContent="center"
               sx={{
-                mt: 10,
                 display: { xs: "none", sm: "none", md: "inherit" },
               }}
             >
               <img
                 src="/nowhereonatrain-logo.png"
-                alt="Restaurant Intro Food"
+                id="test"
                 style={{
                   maxWidth: "800px",
-                  maxHeight: "230px",
+                  transition: "0.2s",
+                  marginTop: "70px",
+                  maxHeight: "215px",
                   justifyContent: "center",
                   alignSelf: "center",
                 }}
@@ -126,7 +129,6 @@ const Header = () => {
               xs={12}
               sm={2}
               md={2.5}
-              style={{ border: "4px solid green" }}
               container
               justifyContent="flex-end"
               sx={{ maxHeight: 0 }}
@@ -134,7 +136,7 @@ const Header = () => {
               <IconButton
                 size="small"
                 color="inherit"
-                sx={{ margin: 0, mt: 2 }}
+                sx={{ margin: 0, mt: 2, mr: 2.5 }}
               >
                 <MenuIcon
                   style={{ color: themes.palette.primary.main }}

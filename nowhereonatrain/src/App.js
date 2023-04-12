@@ -1,19 +1,13 @@
 import Header from "./components/Nav/Header";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-
-const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-  },
-});
+import LandingPage from "./components/pages/LandingPage/LandingPage";
+import "./styles/ScrollSpy.scss";
 
 function App() {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <CssBaseline />
+    <div>
       <Header />
-    </ThemeProvider>
+      <LandingPage />
+    </div>
   );
 }
 
